@@ -6,24 +6,17 @@ class MainViewController: NSViewController {
   var oldColor: NSColor?
   
   @IBAction func showRed(_ sender: NSButton) {
-    oldColor = solidColor.drawingFill
     solidColor.drawingFill = NSColor.red
-    solidColor.needsDisplay = true
   }
   
   @IBAction func showRandomColor(sender: NSButton) {
-    oldColor = solidColor.drawingFill
     solidColor.drawingFill = NSColor.random()
-    solidColor.needsDisplay = true
   }
   
   @IBAction func showPreviousColor(sender: NSButton) {
-    if let realOldColor = oldColor {
-      solidColor.drawingFill = realOldColor
-      solidColor.needsDisplay = true
+    solidColor.drawingFill = solidColor.oldColor ?? NSColor.clear
     }
   }
-  
-}
+
 
 
