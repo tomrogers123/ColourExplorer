@@ -12,13 +12,13 @@ class SolidColorView: NSView {
   
   var drawingFill = NSColor.green
   
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-      
-      let box = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-      drawingFill.setFill()
-      box.fill()
-      
-    }
+  override func draw(_ dirtyRect: NSRect) {
+    super.draw(dirtyRect)
     
+    let box = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+    drawingFill.setFill()
+    box.fill()
+    
+  }
+  
 }
