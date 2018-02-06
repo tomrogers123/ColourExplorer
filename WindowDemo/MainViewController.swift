@@ -18,10 +18,8 @@ class MainViewController: NSViewController {
   }
   
   @IBAction func showPreviousColor(sender: NSButton) {
-    if let realOldColor = oldColor {
-      solidColor.drawingFill = realOldColor
-      solidColor.needsDisplay = true
-    }
+    solidColor.drawingFill = oldColor ?? NSColor.clear
+    solidColor.needsDisplay = true
   }
   
 }
