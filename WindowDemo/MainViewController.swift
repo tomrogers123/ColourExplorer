@@ -3,7 +3,6 @@ import Cocoa
 class MainViewController: NSViewController {
   
   @IBOutlet weak var solidColor: SolidColorView!
-  var oldColor: NSColor?
   
   @IBAction func showRed(_ sender: NSButton) {
     solidColor.drawingFill = NSColor.red
