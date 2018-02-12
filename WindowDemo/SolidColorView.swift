@@ -10,7 +10,14 @@ import Cocoa
 
 class SolidColorView: NSView {
   
-  var drawingFill = NSColor.green
+  var drawingFill = NSColor.green {
+    didSet {
+      oldColor = oldValue
+      needsDisplay = true
+    }
+  }
+  
+  var oldColor: NSColor?
   
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
