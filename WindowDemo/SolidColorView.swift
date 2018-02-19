@@ -1,30 +1,40 @@
-//
-//  SolidColorView.swift
-//  Base
-//
-//  Created by Tom Rogers on 06/02/2018.
-//  Copyright © 2018 Tom Rogers. All rights reserved.
-//
-
 import Cocoa
 
 class SolidColorView: NSView {
   
+  private func conditionallyPerformAnimation(_ oldValue: NSColor) {
+    if animationEnabled {
+      colorFadeAnimation.fromValue = oldValue.cgColor
+      colorFadeAnimation.toValue = drawingFill.cgColor
+      colorFadeAnimation.duration = 5
+      boxLayer.backgroundColor = drawingFill.cgColor
+      boxLayer.add(colorFadeAnimation, forKey: "baclgroundColor")
+    } else {
+      layer?.setNeedsDisplay()
+    }
+  }
+  
   var drawingFill = NSColor.green {
     didSet {
       oldColor = oldValue
-      needsDisplay = true
+      conditionallyPerformAnimation(oldValue)
     }
   }
   
   var oldColor: NSColor?
+  var animationEnabled = false
+  let boxLayer = CALayer()
+  let colorFadeAnimation = CABasicAnimation()
+  
   
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     
-    let box = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-    drawingFill.setFill()
-    box.fill()
+    CATransaction.setDisableActions(true)
+    boxLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+    boxLayer.backgroundColor = drawingFill.cgColor
+    layer?.addSublayer(boxLayer)
+    CATransaction.commit()
     
   }
   
