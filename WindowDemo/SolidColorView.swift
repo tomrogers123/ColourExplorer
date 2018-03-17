@@ -1,5 +1,9 @@
 import Cocoa
 
+protocol ColorViewDelegate : NSObjectProtocol {
+  func viewDidGetNewColor(_ color: NSColor)
+}
+
 class SolidColorView: NSView {
   
   private func conditionallyPerformAnimation(_ oldValue: NSColor) {
@@ -16,12 +20,12 @@ class SolidColorView: NSView {
   
   var drawingFill = NSColor.green {
     didSet {
-      oldColor = oldValue
+      delegate?.viewDidGetNewColor(oldValue)
       conditionallyPerformAnimation(oldValue)
     }
   }
   
-  var oldColor: NSColor?
+  weak var delegate: ColorViewDelegate?
   var animationEnabled = false
   let boxLayer = CALayer()
   let colorFadeAnimation = CABasicAnimation()

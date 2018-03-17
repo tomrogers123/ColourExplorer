@@ -1,8 +1,18 @@
 import Cocoa
 
-class MainViewController: NSViewController {
+class MainViewController: NSViewController, ColorViewDelegate {
   
   @IBOutlet weak var solidColor: SolidColorView!
+  var previousColors = [NSColor]()
+  
+  override func awakeFromNib() {
+    solidColor.delegate = self
+  }
+  
+  func viewDidGetNewColor(_ oldColor: NSColor) {
+    previousColors.append(oldColor)
+    print("color added to array in controller")
+  }
   
   @IBAction func showRed(_ sender: NSButton) {
     solidColor.drawingFill = NSColor.red
@@ -21,7 +31,7 @@ class MainViewController: NSViewController {
   }
   
   @IBAction func showPreviousColor(sender: NSButton) {
-    solidColor.drawingFill = solidColor.oldColor ?? NSColor.clear
+    solidColor.drawingFill = NSColor.clear
   }
 
 }
