@@ -15,6 +15,9 @@
 		1D3CD61D20043F75001CDC2F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3CD61B20043F75001CDC2F /* MainWindow.xib */; };
 		1D87D318202A0BD3000FB514 /* SolidColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D87D317202A0BD3000FB514 /* SolidColorView.swift */; };
 		1D87D31A202A100D000FB514 /* NSColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D87D319202A100D000FB514 /* NSColor+Random.swift */; };
+		1DEE39D9205D483C00ACF4B1 /* ColorColletionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE39D7205D483C00ACF4B1 /* ColorColletionViewItem.swift */; };
+		1DEE39DA205D483C00ACF4B1 /* ColorColletionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */; };
+		1DEE39DC205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		1D3CD61B20043F75001CDC2F /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		1D87D317202A0BD3000FB514 /* SolidColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidColorView.swift; sourceTree = "<group>"; };
 		1D87D319202A100D000FB514 /* NSColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Random.swift"; sourceTree = "<group>"; };
+		1DEE39D7205D483C00ACF4B1 /* ColorColletionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorColletionViewItem.swift; sourceTree = "<group>"; };
+		1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorColletionViewItem.xib; sourceTree = "<group>"; };
+		1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorColletionViewItemSubview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,8 @@
 				1D319E99200FA321002A781C /* MainViewController.swift */,
 				1D87D317202A0BD3000FB514 /* SolidColorView.swift */,
 				1D87D319202A100D000FB514 /* NSColor+Random.swift */,
+				1DEE39D7205D483C00ACF4B1 /* ColorColletionViewItem.swift */,
+				1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -94,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				1D3CD60E200437B2001CDC2F /* MainMenu.xib */,
+				1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */,
 				1D3CD61B20043F75001CDC2F /* MainWindow.xib */,
 			);
 			name = XIBs;
@@ -159,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D3CD60D200437B2001CDC2F /* Assets.xcassets in Resources */,
+				1DEE39DA205D483C00ACF4B1 /* ColorColletionViewItem.xib in Resources */,
 				1D3CD61D20043F75001CDC2F /* MainWindow.xib in Resources */,
 				1D3CD610200437B2001CDC2F /* MainMenu.xib in Resources */,
 			);
@@ -171,9 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DEE39DC205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift in Sources */,
 				1D87D318202A0BD3000FB514 /* SolidColorView.swift in Sources */,
 				1D3CD60B200437B2001CDC2F /* AppDelegate.swift in Sources */,
 				1D87D31A202A100D000FB514 /* NSColor+Random.swift in Sources */,
+				1DEE39D9205D483C00ACF4B1 /* ColorColletionViewItem.swift in Sources */,
 				1D3CD61C20043F75001CDC2F /* MainWindowController.swift in Sources */,
 				1D319E9A200FA321002A781C /* MainViewController.swift in Sources */,
 			);

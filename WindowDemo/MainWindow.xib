@@ -15,27 +15,27 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="aqP-kV-a6Q">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="551" y="321" width="588" height="408"/>
+            <rect key="contentRect" x="551" y="321" width="588" height="515"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
-            <view key="contentView" wantsLayer="YES" misplaced="YES" id="9Wi-q9-zSy">
-                <rect key="frame" x="0.0" y="0.0" width="588" height="409"/>
+            <view key="contentView" wantsLayer="YES" id="9Wi-q9-zSy">
+                <rect key="frame" x="0.0" y="0.0" width="588" height="515"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="flQ-e8-U7Y">
-                        <rect key="frame" x="20" y="20" width="548" height="369"/>
+                        <rect key="frame" x="20" y="20" width="548" height="475"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pP-ue-L11">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="369"/>
+                                <rect key="frame" x="0.0" y="49" width="400" height="426"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="aeF-Gq-2S2" customClass="SolidColorView" customModule="Base" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="400" height="339"/>
+                                        <rect key="frame" x="0.0" y="88" width="400" height="338"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="lGV-Nw-OjJ"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="320" id="tcu-aG-fCH"/>
                                         </constraints>
                                     </customView>
                                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ia-8I-OJw">
-                                        <rect key="frame" x="0.0" y="-1" width="400" height="23"/>
+                                        <rect key="frame" x="0.0" y="57" width="400" height="23"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="texturedRounded" trackingMode="selectOne" id="rQW-uV-Wd4">
                                             <font key="font" metaFont="system"/>
                                             <segments>
@@ -47,21 +47,60 @@
                                             <action selector="DisplayModeSelected:" target="5Hh-Ca-Gfg" id="WXI-sL-Uwz"/>
                                         </connections>
                                     </segmentedControl>
+                                    <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-zx-U8S">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
+                                        <clipView key="contentView" drawsBackground="NO" id="uRd-MU-cz7">
+                                            <rect key="frame" x="1" y="1" width="383" height="48"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <collectionView id="kZ7-fk-B31">
+                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="158"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="Guz-jY-Wte">
+                                                        <size key="itemSize" width="50" height="49"/>
+                                                    </collectionViewFlowLayout>
+                                                    <color key="primaryBackgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="5Hh-Ca-Gfg" id="Nrj-rp-Vvr"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="50" id="6Af-8w-jbk"/>
+                                        </constraints>
+                                        <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="AUF-wM-csJ">
+                                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="2Ac-Qj-YTv">
+                                            <rect key="frame" x="384" y="1" width="15" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9EI-zx-U8S" secondAttribute="bottom" id="GlC-CG-Iga"/>
+                                    <constraint firstItem="9EI-zx-U8S" firstAttribute="top" secondItem="4ia-8I-OJw" secondAttribute="bottom" constant="8" symbolic="YES" id="OfA-je-HZC"/>
+                                    <constraint firstAttribute="trailing" secondItem="9EI-zx-U8S" secondAttribute="trailing" id="mAM-9Z-rsB"/>
                                     <constraint firstItem="4ia-8I-OJw" firstAttribute="centerX" secondItem="5pP-ue-L11" secondAttribute="centerX" id="pR9-cM-I7R"/>
+                                    <constraint firstItem="9EI-zx-U8S" firstAttribute="leading" secondItem="5pP-ue-L11" secondAttribute="leading" id="uE2-DU-kVe"/>
                                 </constraints>
                                 <visibilityPriorities>
+                                    <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-yF-7hr">
-                                <rect key="frame" x="408" y="290" width="140" height="79"/>
+                                <rect key="frame" x="408" y="396" width="140" height="79"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vcl-EB-Ccq">
                                         <rect key="frame" x="0.0" y="57" width="140" height="23"/>
@@ -131,10 +170,11 @@
                     <constraint firstItem="flQ-e8-U7Y" firstAttribute="leading" secondItem="9Wi-q9-zSy" secondAttribute="leading" constant="20" symbolic="YES" id="cCx-lo-b1E"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="922" y="145"/>
+            <point key="canvasLocation" x="922" y="159.5"/>
         </window>
         <viewController id="5Hh-Ca-Gfg" customClass="MainViewController" customModule="Base" customModuleProvider="target">
             <connections>
+                <outlet property="previousColorChart" destination="kZ7-fk-B31" id="waq-28-brH"/>
                 <outlet property="solidColor" destination="aeF-Gq-2S2" id="Eea-oV-Unb"/>
             </connections>
         </viewController>

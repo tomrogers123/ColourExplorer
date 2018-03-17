@@ -30,7 +30,6 @@ class SolidColorView: NSView {
   let boxLayer = CALayer()
   let colorFadeAnimation = CABasicAnimation()
   
-  
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     
