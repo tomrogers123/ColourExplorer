@@ -8,11 +8,10 @@ class SolidColorView: NSView {
   
   private func conditionallyPerformAnimation(_ oldValue: NSColor) {
     if animationEnabled {
-      colorFadeAnimation.fromValue = oldValue.cgColor
-      colorFadeAnimation.toValue = drawingFill.cgColor
-      colorFadeAnimation.duration = 5
+      colorFadeAnimation.duration = 0.5
+      colorFadeAnimation.type = kCATransitionFade
       boxLayer.backgroundColor = drawingFill.cgColor
-      boxLayer.add(colorFadeAnimation, forKey: "baclgroundColor")
+      boxLayer.add(colorFadeAnimation, forKey: "transition")
     } else {
       layer?.setNeedsDisplay()
     }
@@ -28,7 +27,7 @@ class SolidColorView: NSView {
   weak var delegate: ColorViewDelegate?
   var animationEnabled = false
   let boxLayer = CALayer()
-  let colorFadeAnimation = CABasicAnimation()
+  let colorFadeAnimation = CATransition()
   
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
