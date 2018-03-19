@@ -1,10 +1,10 @@
 import Cocoa
 
-class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewDataSource {
+class MainViewController: NSViewController, ColorViewDelegate {
   
   @IBOutlet weak var solidColor: SolidColorView!
   @IBOutlet weak var previousColorChart: NSCollectionView!
-  private var previousColors = [NSColor]()
+  private(set) var previousColors = [NSColor]()
   private var goingBack = false
   private var backwardSteps = 0
   
@@ -52,16 +52,6 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     
   }
   
-  func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-    return previousColors.count
-  }
-  
-  func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
 
-    let colorItem = ColorColletionViewItem()
-    (colorItem.view as? ColorColletionViewItemSubview)?.colorToDrawWith = previousColors[indexPath.item]
-    return colorItem
-    
-  }
 
 }

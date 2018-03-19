@@ -6,6 +6,11 @@ protocol ColorViewDelegate : NSObjectProtocol {
 
 class SolidColorView: NSView {
   
+  weak var delegate: ColorViewDelegate?
+  var animationEnabled = false
+  private let boxLayer = CALayer()
+  private let colorFadeAnimation = CATransition()
+  
   private func conditionallyPerformAnimation(_ oldValue: NSColor) {
     if animationEnabled {
       colorFadeAnimation.duration = 0.5
@@ -23,11 +28,6 @@ class SolidColorView: NSView {
       conditionallyPerformAnimation(oldValue)
     }
   }
-  
-  weak var delegate: ColorViewDelegate?
-  var animationEnabled = false
-  let boxLayer = CALayer()
-  let colorFadeAnimation = CATransition()
   
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
