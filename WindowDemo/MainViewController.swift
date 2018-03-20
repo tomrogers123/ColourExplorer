@@ -1,16 +1,12 @@
 import Cocoa
 
-class MainViewController: NSViewController, ColorViewDelegate {
+class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewDelegate {
   
   @IBOutlet weak var solidColor: SolidColorView!
   @IBOutlet weak var previousColorChart: NSCollectionView!
   private(set) var previousColors = [NSColor]()
   private var goingBack = false
   private var backwardSteps = 0
-  
-  override func awakeFromNib() {
-    solidColor.delegate = self
-  }
   
   func viewDidGetNewColor(_ oldColor: NSColor) {
     if goingBack == false {
@@ -44,14 +40,19 @@ class MainViewController: NSViewController, ColorViewDelegate {
     
     let desiredIndex = previousColors.count - backwardSteps
     
-    print(desiredIndex)
-    
     if desiredIndex < previousColors.count && desiredIndex >= 0 {
       solidColor.drawingFill = previousColors[desiredIndex]
     }
     
   }
   
-
-
+  func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+    
+    guard let selectedColor = collectionView.item(at: indexPaths.first!)?.representedObject as? NSColor else { return }
+    
+    goingBack = true
+    solidColor.drawingFill = selectedColor
+    
+  }
+  
 }

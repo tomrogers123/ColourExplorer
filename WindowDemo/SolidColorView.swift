@@ -1,15 +1,27 @@
 import Cocoa
 
-protocol ColorViewDelegate : NSObjectProtocol {
+@objc protocol ColorViewDelegate : NSObjectProtocol {
   func viewDidGetNewColor(_ color: NSColor)
 }
 
 class SolidColorView: NSView {
   
-  weak var delegate: ColorViewDelegate?
+  @IBOutlet weak var delegate: ColorViewDelegate?
   var animationEnabled = false
   private let boxLayer = CALayer()
   private let colorFadeAnimation = CATransition()
+  
+  override var intrinsicContentSize: NSSize {
+    return NSSize(width: CGFloat(400), height: CGFloat(400))
+  }
+  
+  var drawingFill = NSColor.green {
+    didSet {
+      conditionallyPerformAnimation(oldValue)
+      delegate?.viewDidGetNewColor(oldValue)
+
+    }
+  }
   
   private func conditionallyPerformAnimation(_ oldValue: NSColor) {
     if animationEnabled {
@@ -19,13 +31,6 @@ class SolidColorView: NSView {
       boxLayer.add(colorFadeAnimation, forKey: "transition")
     } else {
       layer?.setNeedsDisplay()
-    }
-  }
-  
-  var drawingFill = NSColor.green {
-    didSet {
-      delegate?.viewDidGetNewColor(oldValue)
-      conditionallyPerformAnimation(oldValue)
     }
   }
   

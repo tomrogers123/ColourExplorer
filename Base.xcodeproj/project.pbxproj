@@ -19,6 +19,7 @@
 		1DEE39DA205D483C00ACF4B1 /* ColorColletionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */; };
 		1DEE39DC205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */; };
 		1DEE3A1E20601AE800ACF4B1 /* MainVC+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE3A1D20601AE800ACF4B1 /* MainVC+Collection.swift */; };
+		1DEE3A202060226400ACF4B1 /* CGRect+center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE3A1F2060226400ACF4B1 /* CGRect+center.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorColletionViewItem.xib; sourceTree = "<group>"; };
 		1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorColletionViewItemSubview.swift; sourceTree = "<group>"; };
 		1DEE3A1D20601AE800ACF4B1 /* MainVC+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+Collection.swift"; sourceTree = "<group>"; };
+		1DEE3A1F2060226400ACF4B1 /* CGRect+center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+center.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,11 +94,12 @@
 				1D3CD60A200437B2001CDC2F /* AppDelegate.swift */,
 				1D3CD61A20043F75001CDC2F /* MainWindowController.swift */,
 				1D319E99200FA321002A781C /* MainViewController.swift */,
-				1D87D317202A0BD3000FB514 /* SolidColorView.swift */,
 				1D87D319202A100D000FB514 /* NSColor+Random.swift */,
+				1D87D317202A0BD3000FB514 /* SolidColorView.swift */,
 				1DEE39D7205D483C00ACF4B1 /* ColorColletionViewItem.swift */,
 				1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */,
 				1DEE3A1D20601AE800ACF4B1 /* MainVC+Collection.swift */,
+				1DEE3A1F2060226400ACF4B1 /* CGRect+center.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				1DEE39DC205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift in Sources */,
 				1D87D318202A0BD3000FB514 /* SolidColorView.swift in Sources */,
+				1DEE3A202060226400ACF4B1 /* CGRect+center.swift in Sources */,
 				1D3CD60B200437B2001CDC2F /* AppDelegate.swift in Sources */,
 				1D87D31A202A100D000FB514 /* NSColor+Random.swift in Sources */,
 				1DEE39D9205D483C00ACF4B1 /* ColorColletionViewItem.swift in Sources */,
