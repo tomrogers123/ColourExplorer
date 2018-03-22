@@ -11,7 +11,7 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   
   func viewDidGetNewColor(_ oldColor: NSColor) {
     if goingBack == false {
-      previousColors.append(oldColor)
+      activeDocument?.storedColors.append(oldColor)
       previousColorChart.reloadData()
     }
   }
@@ -39,10 +39,10 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     goingBack = true
     backwardSteps += 1
     
-    let desiredIndex = previousColors.count - backwardSteps
+    let desiredIndex = (activeDocument?.storedColors.count)! - backwardSteps
     
-    if desiredIndex < previousColors.count && desiredIndex >= 0 {
-      solidColor.drawingFill = previousColors[desiredIndex]
+    if desiredIndex < (activeDocument?.storedColors.count)! && desiredIndex >= 0 {
+      solidColor.drawingFill = (activeDocument?.storedColors[desiredIndex])!
     }
     
   }
