@@ -6,16 +6,16 @@
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Base" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ColorFunDocument" customModule="Base" customModuleProvider="target">
             <connections>
                 <outlet property="window" destination="aqP-kV-a6Q" id="i6M-Q2-Vm0"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="aqP-kV-a6Q">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" tabbingMode="disallowed" id="aqP-kV-a6Q">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="551" y="321" width="644" height="550"/>
+            <rect key="contentRect" x="551" y="321" width="644" height="596"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="9Wi-q9-zSy" userLabel="Root View">
                 <rect key="frame" x="0.0" y="0.0" width="644" height="596"/>
@@ -24,10 +24,10 @@
                     <stackView distribution="fillProportionally" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="flQ-e8-U7Y" userLabel="Grid Wrapper">
                         <rect key="frame" x="20" y="20" width="604" height="556"/>
                         <subviews>
-                            <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pP-ue-L11">
+                            <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pP-ue-L11" userLabel="Content Stack">
                                 <rect key="frame" x="0.0" y="0.0" width="456" height="556"/>
                                 <subviews>
-                                    <customView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="aeF-Gq-2S2" customClass="SolidColorView" customModule="Base" customModuleProvider="target">
+                                    <customView horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="aeF-Gq-2S2" userLabel="Color View" customClass="SolidColorView" customModule="Base" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="156" width="456" height="400"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="400" id="4Ow-NS-tGz"/>
@@ -37,7 +37,7 @@
                                             <outlet property="delegate" destination="5Hh-Ca-Gfg" id="S2K-EI-rvF"/>
                                         </connections>
                                     </customView>
-                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ia-8I-OJw">
+                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ia-8I-OJw" userLabel="Animation Toggle">
                                         <rect key="frame" x="0.0" y="125" width="456" height="23"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="capsule" trackingMode="selectOne" id="rQW-uV-Wd4">
                                             <font key="font" metaFont="system"/>
@@ -50,7 +50,7 @@
                                             <action selector="DisplayModeSelected:" target="5Hh-Ca-Gfg" id="WXI-sL-Uwz"/>
                                         </connections>
                                     </segmentedControl>
-                                    <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" findBarPosition="aboveHorizontalRuler" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-zx-U8S">
+                                    <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" findBarPosition="aboveHorizontalRuler" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-zx-U8S" userLabel="Collection Wrapper">
                                         <rect key="frame" x="0.0" y="20" width="456" height="98"/>
                                         <clipView key="contentView" drawsBackground="NO" id="uRd-MU-cz7">
                                             <rect key="frame" x="0.0" y="0.0" width="456" height="98"/>
@@ -87,7 +87,7 @@
                                     </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="9EI-zx-U8S" firstAttribute="top" secondItem="4ia-8I-OJw" secondAttribute="bottom" priority="400" constant="8" symbolic="YES" id="3JJ-kc-ERG"/>
+                                    <constraint firstItem="9EI-zx-U8S" firstAttribute="top" secondItem="4ia-8I-OJw" secondAttribute="bottom" constant="8" symbolic="YES" id="3JJ-kc-ERG"/>
                                     <constraint firstItem="4ia-8I-OJw" firstAttribute="leading" secondItem="5pP-ue-L11" secondAttribute="leading" id="LkR-Ap-Fwo"/>
                                     <constraint firstItem="aeF-Gq-2S2" firstAttribute="top" secondItem="5pP-ue-L11" secondAttribute="top" id="PRH-cy-SKy"/>
                                     <constraint firstItem="4ia-8I-OJw" firstAttribute="top" secondItem="aeF-Gq-2S2" secondAttribute="bottom" constant="8" symbolic="YES" id="TAX-iD-0YF"/>
@@ -107,7 +107,7 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-yF-7hr" userLabel="Controls">
+                            <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-yF-7hr" userLabel="Controls Stack">
                                 <rect key="frame" x="464" y="477" width="140" height="79"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vcl-EB-Ccq">
@@ -144,7 +144,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="p8j-9L-Kf4" secondAttribute="trailing" id="DaD-Vn-vnC"/>
                                     <constraint firstAttribute="trailing" secondItem="VfW-6E-S94" secondAttribute="trailing" id="Gk9-Zg-xfn"/>
-                                    <constraint firstAttribute="trailing" secondItem="vcl-EB-Ccq" secondAttribute="trailing" id="S10-DD-SHr"/>
+                                    <constraint firstItem="vcl-EB-Ccq" firstAttribute="trailing" secondItem="Ni1-yF-7hr" secondAttribute="trailing" id="S10-DD-SHr"/>
                                     <constraint firstItem="VfW-6E-S94" firstAttribute="leading" secondItem="Ni1-yF-7hr" secondAttribute="leading" id="jQx-Z2-3wO"/>
                                     <constraint firstItem="p8j-9L-Kf4" firstAttribute="leading" secondItem="Ni1-yF-7hr" secondAttribute="leading" id="sap-Um-S0y"/>
                                 </constraints>
@@ -161,7 +161,7 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="556" id="gE5-3i-1XG"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="556" id="gE5-3i-1XG"/>
                         </constraints>
                         <visibilityPriorities>
                             <integer value="1000"/>
@@ -174,7 +174,7 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="flQ-e8-U7Y" firstAttribute="top" secondItem="9Wi-q9-zSy" secondAttribute="top" constant="20" symbolic="YES" id="87I-35-Bp5"/>
+                    <constraint firstItem="flQ-e8-U7Y" firstAttribute="top" secondItem="9Wi-q9-zSy" secondAttribute="top" constant="20" symbolic="YES" id="87I-35-Bp5" userLabel="Stick grid top to window"/>
                     <constraint firstItem="flQ-e8-U7Y" firstAttribute="leading" secondItem="9Wi-q9-zSy" secondAttribute="leading" constant="20" symbolic="YES" id="JNY-yd-a45"/>
                     <constraint firstAttribute="trailing" secondItem="flQ-e8-U7Y" secondAttribute="trailing" constant="20" symbolic="YES" id="Mo4-wa-z03"/>
                     <constraint firstAttribute="bottom" secondItem="flQ-e8-U7Y" secondAttribute="bottom" constant="20" symbolic="YES" id="iuD-ls-FMj"/>

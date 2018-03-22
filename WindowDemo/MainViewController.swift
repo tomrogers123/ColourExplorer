@@ -8,6 +8,7 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   private var goingBack = false
   private var backwardSteps = 0
   
+  
   func viewDidGetNewColor(_ oldColor: NSColor) {
     if goingBack == false {
       previousColors.append(oldColor)

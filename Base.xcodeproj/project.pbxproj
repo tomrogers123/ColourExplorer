@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1D319E9A200FA321002A781C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D319E99200FA321002A781C /* MainViewController.swift */; };
-		1D3CD60B200437B2001CDC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3CD60A200437B2001CDC2F /* AppDelegate.swift */; };
+		1D3CD60B200437B2001CDC2F /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3CD60A200437B2001CDC2F /* AppController.swift */; };
 		1D3CD60D200437B2001CDC2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3CD60C200437B2001CDC2F /* Assets.xcassets */; };
 		1D3CD610200437B2001CDC2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3CD60E200437B2001CDC2F /* MainMenu.xib */; };
-		1D3CD61C20043F75001CDC2F /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3CD61A20043F75001CDC2F /* MainWindowController.swift */; };
-		1D3CD61D20043F75001CDC2F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3CD61B20043F75001CDC2F /* MainWindow.xib */; };
+		1D3CD61D20043F75001CDC2F /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3CD61B20043F75001CDC2F /* Document.xib */; };
 		1D87D318202A0BD3000FB514 /* SolidColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D87D317202A0BD3000FB514 /* SolidColorView.swift */; };
 		1D87D31A202A100D000FB514 /* NSColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D87D319202A100D000FB514 /* NSColor+Random.swift */; };
+		1DD0A06B2061BEA000603CF3 /* ColorFunDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD0A06A2061BEA000603CF3 /* ColorFunDocument.swift */; };
 		1DEE39D9205D483C00ACF4B1 /* ColorColletionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE39D7205D483C00ACF4B1 /* ColorColletionViewItem.swift */; };
 		1DEE39DA205D483C00ACF4B1 /* ColorColletionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */; };
 		1DEE39DC205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */; };
@@ -25,15 +25,15 @@
 /* Begin PBXFileReference section */
 		1D319E99200FA321002A781C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1D3CD607200437B2001CDC2F /* Base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Base.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D3CD60A200437B2001CDC2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1D3CD60A200437B2001CDC2F /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		1D3CD60C200437B2001CDC2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D3CD60F200437B2001CDC2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1D3CD611200437B2001CDC2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D3CD612200437B2001CDC2F /* WindowDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WindowDemo.entitlements; sourceTree = "<group>"; };
-		1D3CD61A20043F75001CDC2F /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		1D3CD61B20043F75001CDC2F /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		1D3CD61B20043F75001CDC2F /* Document.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Document.xib; sourceTree = "<group>"; };
 		1D87D317202A0BD3000FB514 /* SolidColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidColorView.swift; sourceTree = "<group>"; };
 		1D87D319202A100D000FB514 /* NSColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Random.swift"; sourceTree = "<group>"; };
+		1DD0A06A2061BEA000603CF3 /* ColorFunDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFunDocument.swift; sourceTree = "<group>"; };
 		1DEE39D7205D483C00ACF4B1 /* ColorColletionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorColletionViewItem.swift; sourceTree = "<group>"; };
 		1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorColletionViewItem.xib; sourceTree = "<group>"; };
 		1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorColletionViewItemSubview.swift; sourceTree = "<group>"; };
@@ -91,8 +91,7 @@
 		1D6F9109201C75AB00EF7B16 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				1D3CD60A200437B2001CDC2F /* AppDelegate.swift */,
-				1D3CD61A20043F75001CDC2F /* MainWindowController.swift */,
+				1D3CD60A200437B2001CDC2F /* AppController.swift */,
 				1D319E99200FA321002A781C /* MainViewController.swift */,
 				1D87D319202A100D000FB514 /* NSColor+Random.swift */,
 				1D87D317202A0BD3000FB514 /* SolidColorView.swift */,
@@ -100,6 +99,7 @@
 				1DEE39DB205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift */,
 				1DEE3A1D20601AE800ACF4B1 /* MainVC+Collection.swift */,
 				1DEE3A1F2060226400ACF4B1 /* CGRect+center.swift */,
+				1DD0A06A2061BEA000603CF3 /* ColorFunDocument.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 			children = (
 				1D3CD60E200437B2001CDC2F /* MainMenu.xib */,
 				1DEE39D8205D483C00ACF4B1 /* ColorColletionViewItem.xib */,
-				1D3CD61B20043F75001CDC2F /* MainWindow.xib */,
+				1D3CD61B20043F75001CDC2F /* Document.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 			files = (
 				1D3CD60D200437B2001CDC2F /* Assets.xcassets in Resources */,
 				1DEE39DA205D483C00ACF4B1 /* ColorColletionViewItem.xib in Resources */,
-				1D3CD61D20043F75001CDC2F /* MainWindow.xib in Resources */,
+				1D3CD61D20043F75001CDC2F /* Document.xib in Resources */,
 				1D3CD610200437B2001CDC2F /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,10 +190,10 @@
 				1DEE39DC205D48D600ACF4B1 /* ColorColletionViewItemSubview.swift in Sources */,
 				1D87D318202A0BD3000FB514 /* SolidColorView.swift in Sources */,
 				1DEE3A202060226400ACF4B1 /* CGRect+center.swift in Sources */,
-				1D3CD60B200437B2001CDC2F /* AppDelegate.swift in Sources */,
+				1D3CD60B200437B2001CDC2F /* AppController.swift in Sources */,
+				1DD0A06B2061BEA000603CF3 /* ColorFunDocument.swift in Sources */,
 				1D87D31A202A100D000FB514 /* NSColor+Random.swift in Sources */,
 				1DEE39D9205D483C00ACF4B1 /* ColorColletionViewItem.swift in Sources */,
-				1D3CD61C20043F75001CDC2F /* MainWindowController.swift in Sources */,
 				1D319E9A200FA321002A781C /* MainViewController.swift in Sources */,
 				1DEE3A1E20601AE800ACF4B1 /* MainVC+Collection.swift in Sources */,
 			);
