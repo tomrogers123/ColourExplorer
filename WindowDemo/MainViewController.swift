@@ -7,12 +7,21 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   private(set) var previousColors = [NSColor]()
   private var goingBack = false
   private var backwardSteps = 0
-  
-  
+
   func viewDidGetNewColor(_ oldColor: NSColor) {
     if goingBack == false {
       activeDocument?.storedColors.append(oldColor)
       previousColorChart.reloadData()
+    }
+  }
+  
+  @IBOutlet weak var animationControl: NSSegmentedControl!
+  
+  override func viewDidLoad() {
+    if globalSettings.animatedByDefault {
+      animationControl.selectSegment(withTag: 1)
+    } else {
+      animationControl.selectSegment(withTag: 0)
     }
   }
   
@@ -26,12 +35,24 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     solidColor.drawingFill = NSColor.random()
   }
   
+  @IBAction func showCustomColor(sender: NSButton) {
+    let well = NSColorWell()
+    well.action = #selector(customColorChosen(_:))
+    well.activate(true)
+    
+  }
+  
   @IBAction func DisplayModeSelected(_ sender: NSSegmentedControl) {
     if sender.selectedSegment == 1 {
       solidColor.animationEnabled = true
     } else {
       solidColor.animationEnabled = false
     }
+  }
+  
+  
+  @objc func customColorChosen(_ sender: NSColorWell) {
+    solidColor.drawingFill = sender.color
   }
   
   @IBAction func showPreviousColor(sender: NSButton) {
@@ -55,5 +76,11 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     solidColor.drawingFill = selectedColor
     
   }
+  
+  @IBAction func openPreferences(_ sender: NSMenuItem) {
+    let prefs = PreferencesController()
+    activeDocument?.windowForSheet?.beginSheet(prefs.window!, completionHandler: nil)
+  }
+  
   
 }

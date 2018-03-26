@@ -108,16 +108,26 @@
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-yF-7hr" userLabel="Controls Stack">
-                                <rect key="frame" x="464" y="477" width="140" height="79"/>
+                                <rect key="frame" x="464" y="448" width="140" height="108"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vcl-EB-Ccq">
-                                        <rect key="frame" x="0.0" y="57" width="140" height="23"/>
+                                        <rect key="frame" x="0.0" y="86" width="140" height="23"/>
                                         <buttonCell key="cell" type="smallSquare" title="Show Random Color" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="niC-h3-2ls">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showRandomColorWithSender:" target="5Hh-Ca-Gfg" id="Tqu-7n-6jw"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8km-C2-Yu1">
+                                        <rect key="frame" x="0.0" y="57" width="134" height="23"/>
+                                        <buttonCell key="cell" type="smallSquare" title="Show Custom Color" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3e-pp-Bk8">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="systemBold"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showCustomColorWithSender:" target="5Hh-Ca-Gfg" id="BXm-HR-Hi5"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VfW-6E-S94">
@@ -152,8 +162,10 @@
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -184,6 +196,7 @@
         </window>
         <viewController id="5Hh-Ca-Gfg" userLabel="Main VC" customClass="MainViewController" customModule="Base" customModuleProvider="target">
             <connections>
+                <outlet property="animationControl" destination="4ia-8I-OJw" id="beA-CB-b2l"/>
                 <outlet property="previousColorChart" destination="kZ7-fk-B31" id="waq-28-brH"/>
                 <outlet property="solidColor" destination="aeF-Gq-2S2" id="Eea-oV-Unb"/>
                 <outlet property="view" destination="9Wi-q9-zSy" id="YgW-nc-Dft"/>

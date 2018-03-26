@@ -1,20 +1,51 @@
-//
-//  PreferencesController.swift
-//  Base
-//
-//  Created by Tom Rogers on 06/02/2018.
-//  Copyright © 2018 Tom Rogers. All rights reserved.
-//
-
 import Cocoa
 
-class PreferencesController: NSWindowController {
+class globalSettings {
+  static var defaultColor: NSColor?
+  static var animatedByDefault: Bool {
+    return UserDefaults.standard.bool(forKey: PreferenceKeys.AnimateAtStartupSettingName)
+  }
+
+}
+
+class PreferencesController: NSWindowController, NSWindowDelegate {
   
-  var existingColor: NSColor!
-    
   @IBOutlet weak var picker: NSColorWell!
+  @IBOutlet weak var animateOnStartup: NSButton!
+  var animatedByDefault: Bool? = globalSettings.animatedByDefault
   
+  override var windowNibName: NSNib.Name? { return NSNib.Name.PrefWindow }
   
+  override func windowDidLoad() {
+    if animatedByDefault == true {
+      animationOnButton.state = .on
+    } else {
+      animationOffButton.state = .on
+    }
+  }
+  @IBOutlet weak var animationOffButton: NSButton!
+  @IBOutlet weak var animationOnButton: NSButton!
+  
+  private func grabAndSaveDefaults() {
+    
+      UserDefaults.standard.set(animatedByDefault, forKey: PreferenceKeys.AnimateAtStartupSettingName)
+      print("saved")
+
+  }
+  
+  @IBAction func changedAnimationDefault(_ sender: NSButton) {
+    if sender.title == "Enabled" {
+      animatedByDefault = true
+    } else {
+      animatedByDefault = false
+    }
+  }
+  
+  @IBAction func newDefaultsSelected(_ sender: NSButton) {
+    grabAndSaveDefaults()
+    print("j")
+    
+  }
   
 }
 

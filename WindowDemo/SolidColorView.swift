@@ -7,7 +7,7 @@ import Cocoa
 class SolidColorView: NSView {
   
   @IBOutlet weak var delegate: ColorViewDelegate?
-  var animationEnabled = false
+  var animationEnabled = globalSettings.animatedByDefault
   private let boxLayer = CALayer()
   private let colorFadeAnimation = CATransition()
   
@@ -15,7 +15,7 @@ class SolidColorView: NSView {
     return NSSize(width: CGFloat(400), height: CGFloat(400))
   }
   
-  var drawingFill = NSColor.green {
+  var drawingFill = NSColor.orange {
     didSet {
       conditionallyPerformAnimation(oldValue)
       delegate?.viewDidGetNewColor(oldValue)

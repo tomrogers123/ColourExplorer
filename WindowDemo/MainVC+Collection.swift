@@ -11,6 +11,5 @@ extension MainViewController : NSCollectionViewDataSource {
     let colorItem = ColorColletionViewItem()
     colorItem.representedObject = activeDocument?.storedColors[indexPath.item]
     return colorItem
-    
   }
 }
