@@ -2,7 +2,7 @@ import Cocoa
 
 extension NSNib.Name {
   static let mainWindow = NSNib.Name("Document")
-  static let PrefWindow = NSNib.Name("PreferencesSheet")
+  static let PrefWindow = NSNib.Name("PreferencesWindow")
 }
 
 struct PreferenceKeys {

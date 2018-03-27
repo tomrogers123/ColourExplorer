@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="animationOffButton" destination="vv3-Tw-Ded" id="qmQ-54-ek4"/>
                 <outlet property="animationOnButton" destination="zlE-AN-NQZ" id="xh3-k9-Rt9"/>
+                <outlet property="picker" destination="zcJ-y7-BHD" id="kgk-So-Woh"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="dju-oB-dMt"/>
             </connections>
         </customObject>
@@ -36,7 +37,7 @@ Gw
 </string>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="dismissController:" target="-2" id="iKF-Ki-7Wd"/>
+                                    <action selector="cancelPreferences:" target="-1" id="RbK-7t-tqe"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-XD-Fmf">
@@ -82,9 +83,6 @@ DQ
                                             <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="zcJ-y7-BHD">
                                                 <rect key="frame" x="83" y="0.0" width="147" height="50"/>
                                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <connections>
-                                                    <action selector="newDefaultColorSet:" target="-2" id="AjC-PW-DuI"/>
-                                                </connections>
                                             </colorWell>
                                         </subviews>
                                         <visibilityPriorities>

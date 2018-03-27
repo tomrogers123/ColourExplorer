@@ -50,13 +50,13 @@
                                             <action selector="DisplayModeSelected:" target="5Hh-Ca-Gfg" id="WXI-sL-Uwz"/>
                                         </connections>
                                     </segmentedControl>
-                                    <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" findBarPosition="aboveHorizontalRuler" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-zx-U8S" userLabel="Collection Wrapper">
+                                    <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" findBarPosition="aboveHorizontalRuler" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-zx-U8S" userLabel="Collection Wrapper">
                                         <rect key="frame" x="0.0" y="20" width="456" height="98"/>
-                                        <clipView key="contentView" drawsBackground="NO" id="uRd-MU-cz7">
+                                        <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="uRd-MU-cz7">
                                             <rect key="frame" x="0.0" y="0.0" width="456" height="98"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <collectionView selectable="YES" allowsEmptySelection="NO" id="kZ7-fk-B31">
+                                                <collectionView ambiguous="YES" selectable="YES" allowsEmptySelection="NO" id="kZ7-fk-B31">
                                                     <rect key="frame" x="0.0" y="0.0" width="456" height="98"/>
                                                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="Shn-3y-uTF">
@@ -72,9 +72,6 @@
                                             </subviews>
                                             <color key="backgroundColor" name="windowFrameColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="98" id="dJA-dy-9BY"/>
-                                        </constraints>
                                         <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="AUF-wM-csJ">
                                             <rect key="frame" x="1" y="144" width="233" height="15"/>

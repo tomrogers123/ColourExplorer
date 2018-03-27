@@ -11,6 +11,7 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   func viewDidGetNewColor(_ oldColor: NSColor) {
     if goingBack == false {
       activeDocument?.storedColors.append(oldColor)
+      previousColorChart.deselectAll(self)
       previousColorChart.reloadData()
     }
   }
@@ -23,14 +24,20 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     } else {
       animationControl.selectSegment(withTag: 0)
     }
+    
+    previousColorChart.reloadData()
+    
   }
   
   @IBAction func showRed(_ sender: NSButton) {
     solidColor.drawingFill = NSColor.red
+    previousColorChart.deselectAll(self)
+
   }
   
   @IBAction func showRandomColor(sender: NSButton) {
     goingBack = false
+    previousColorChart.deselectAll(self)
     backwardSteps = 0
     solidColor.drawingFill = NSColor.random()
   }
@@ -53,6 +60,7 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   
   @objc func customColorChosen(_ sender: NSColorWell) {
     solidColor.drawingFill = sender.color
+
   }
   
   @IBAction func showPreviousColor(sender: NSButton) {
@@ -72,15 +80,19 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     
     guard let selectedColor = collectionView.item(at: indexPaths.first!)?.representedObject as? NSColor else { return }
     
+    (collectionView.item(at: indexPaths.first!)?.view as? ColorColletionViewItemSubview)?.isSelected = true
+    
     goingBack = true
     solidColor.drawingFill = selectedColor
     
   }
   
-  @IBAction func openPreferences(_ sender: NSMenuItem) {
-    let prefs = PreferencesController()
-    activeDocument?.windowForSheet?.beginSheet(prefs.window!, completionHandler: nil)
+  func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
+    (collectionView.item(at: indexPaths.first!)?.view as? ColorColletionViewItemSubview)?.isSelected = false
   }
   
+  func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
+    return activeDocument?.storedColors[indexPath.item]
+  }
   
 }

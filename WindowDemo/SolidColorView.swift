@@ -15,7 +15,7 @@ class SolidColorView: NSView {
     return NSSize(width: CGFloat(400), height: CGFloat(400))
   }
   
-  var drawingFill = NSColor.orange {
+  var drawingFill = globalSettings.defaultColor {
     didSet {
       conditionallyPerformAnimation(oldValue)
       delegate?.viewDidGetNewColor(oldValue)

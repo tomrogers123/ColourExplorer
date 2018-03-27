@@ -1,7 +1,14 @@
 import Cocoa
 
 class globalSettings {
-  static var defaultColor: NSColor?
+  
+  static var defaultColor: NSColor {
+    guard let objOrig  = UserDefaults.standard.data(forKey: PreferenceKeys.mainColorSettingName) else { return NSColor.gray }
+    let extractedObj = NSKeyedUnarchiver.unarchiveObject(with: objOrig)
+    return (extractedObj as? NSColor) ?? NSColor.yellow
+    
+  }
+  
   static var animatedByDefault: Bool {
     return UserDefaults.standard.bool(forKey: PreferenceKeys.AnimateAtStartupSettingName)
   }
@@ -16,20 +23,31 @@ class PreferencesController: NSWindowController, NSWindowDelegate {
   
   override var windowNibName: NSNib.Name? { return NSNib.Name.PrefWindow }
   
+  @IBOutlet weak var animationOffButton: NSButton!
+  @IBOutlet weak var animationOnButton: NSButton!
+  
   override func windowDidLoad() {
+    
     if animatedByDefault == true {
       animationOnButton.state = .on
     } else {
       animationOffButton.state = .on
     }
+    
+    picker.color = globalSettings.defaultColor
+    
   }
-  @IBOutlet weak var animationOffButton: NSButton!
-  @IBOutlet weak var animationOnButton: NSButton!
+
   
   private func grabAndSaveDefaults() {
     
+    if animatedByDefault != globalSettings.animatedByDefault {
       UserDefaults.standard.set(animatedByDefault, forKey: PreferenceKeys.AnimateAtStartupSettingName)
       print("saved")
+    }
+      
+      let colorToSendToSettings = NSKeyedArchiver.archivedData(withRootObject: picker.color)
+      UserDefaults.standard.set(colorToSendToSettings, forKey: PreferenceKeys.mainColorSettingName)
 
   }
   
@@ -41,10 +59,26 @@ class PreferencesController: NSWindowController, NSWindowDelegate {
     }
   }
   
+  deinit {
+    print("removed")
+  }
+  
+  override init(window: NSWindow?) {
+    super.init(window: window)
+    print("new instaance of \(className)")
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   @IBAction func newDefaultsSelected(_ sender: NSButton) {
     grabAndSaveDefaults()
-    print("j")
-    
+    self.close()
+  }
+  
+  @IBAction func cancelPreferences(_ sender: NSButton) {
+    self.close()
   }
   
 }

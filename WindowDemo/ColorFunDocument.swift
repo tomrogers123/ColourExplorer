@@ -20,6 +20,7 @@ class ColorFunDocument: NSDocument {
 
 extension MainViewController {
   var activeDocument: ColorFunDocument? {
-    return NSDocumentController.shared.currentDocument as? ColorFunDocument
+    return view.window?.windowController?.document as? ColorFunDocument
+    
   }
 }
