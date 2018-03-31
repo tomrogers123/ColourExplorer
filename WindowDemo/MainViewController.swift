@@ -4,18 +4,19 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   
   @IBOutlet weak var solidColor: SolidColorView!
   @IBOutlet weak var previousColorChart: NSCollectionView!
+  @IBOutlet weak var animationControl: NSSegmentedControl!
+  
   private var goingBack = false
   private var backwardSteps = 0
 
   func viewDidGetNewColor(_ oldColor: NSColor) {
     if goingBack == false {
       activeDocument?.storedColors.append(oldColor)
-      previousColorChart.deselectAll(self)
       previousColorChart.reloadData()
     }
   }
   
-  @IBOutlet weak var animationControl: NSSegmentedControl!
+ 
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,16 +28,23 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     
   }
   
+  override func keyUp(with event: NSEvent) {
+    if event.keyCode == 51 && previousColorChart.selectionIndexPaths.count == 1 {
+      guard let itemToRemove = previousColorChart.selectionIndexPaths.first?.item else { return }
+      activeDocument?.storedColors.remove(at: itemToRemove)
+      previousColorChart.reloadData()
+    }
+    
+  }
+  
   
   @IBAction func showRed(_ sender: NSButton) {
     solidColor.drawingFill = NSColor.red
-    previousColorChart.deselectAll(self)
 
   }
   
   @IBAction func showRandomColor(sender: NSButton) {
     goingBack = false
-    previousColorChart.deselectAll(self)
     backwardSteps = 0
     solidColor.drawingFill = NSColor.random()
   }
