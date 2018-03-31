@@ -4,7 +4,6 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   
   @IBOutlet weak var solidColor: SolidColorView!
   @IBOutlet weak var previousColorChart: NSCollectionView!
-  private(set) var previousColors = [NSColor]()
   private var goingBack = false
   private var backwardSteps = 0
 
@@ -19,15 +18,15 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   @IBOutlet weak var animationControl: NSSegmentedControl!
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     if globalSettings.animatedByDefault {
       animationControl.selectSegment(withTag: 1)
     } else {
       animationControl.selectSegment(withTag: 0)
     }
     
-    previousColorChart.reloadData()
-    
   }
+  
   
   @IBAction func showRed(_ sender: NSButton) {
     solidColor.drawingFill = NSColor.red
@@ -60,7 +59,6 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   
   @objc func customColorChosen(_ sender: NSColorWell) {
     solidColor.drawingFill = sender.color
-
   }
   
   @IBAction func showPreviousColor(sender: NSButton) {
@@ -93,6 +91,11 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   
   func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
     return activeDocument?.storedColors[indexPath.item]
+  }
+  
+  override func viewDidAppear() {
+    super.viewDidAppear()
+    previousColorChart.reloadData()
   }
   
 }

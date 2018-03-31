@@ -7,8 +7,8 @@ import Cocoa
   @IBAction func openPreferences(_ sender: NSMenuItem) {
     prefs = PreferencesController()
     prefs.showWindow(self)
-    
   }
+  
   
 }
 

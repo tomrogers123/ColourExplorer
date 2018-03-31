@@ -4,7 +4,7 @@ class ColorFunDocument: NSDocument {
   
   var storedColors = [NSColor]()
   
-  override var windowNibName: NSNib.Name? { return NSNib.Name.mainWindow }
+  override var windowNibName: NSNib.Name? { return NSNib.Name.MainWindow }
   
   override func data(ofType typeName: String) throws -> Data {
     let encodedBits = NSKeyedArchiver.archivedData(withRootObject: storedColors)
@@ -13,8 +13,13 @@ class ColorFunDocument: NSDocument {
   }
   
   override func read(from data: Data, ofType typeName: String) throws {
-    let _ = NSKeyedUnarchiver.unarchiveObject(with: data) as? [NSColor]
-    throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)  }
+    guard let rawColors = NSKeyedUnarchiver.unarchiveObject(with: data) as? [NSColor] else {
+      throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+    }
+    
+    storedColors = rawColors
+    
+  }
 
 }
 

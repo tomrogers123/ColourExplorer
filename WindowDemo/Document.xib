@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ColorFunDocument" customModule="Base" customModuleProvider="target">
             <connections>
+                <outlet property="vc" destination="5Hh-Ca-Gfg" id="xgX-L7-yDP"/>
                 <outlet property="window" destination="aqP-kV-a6Q" id="i6M-Q2-Vm0"/>
             </connections>
         </customObject>

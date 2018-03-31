@@ -11,15 +11,10 @@ class SolidColorView: NSView {
   private let boxLayer = CALayer()
   private let colorFadeAnimation = CATransition()
   
-  override var intrinsicContentSize: NSSize {
-    return NSSize(width: CGFloat(400), height: CGFloat(400))
-  }
-  
   var drawingFill = globalSettings.defaultColor {
     didSet {
       conditionallyPerformAnimation(oldValue)
       delegate?.viewDidGetNewColor(oldValue)
-
     }
   }
   
