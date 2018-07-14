@@ -1,12 +1,11 @@
 import Cocoa
 
-class globalSettings {
+class GlobalSettings {
   
   static var defaultColor: NSColor {
-    guard let objOrig  = UserDefaults.standard.data(forKey: PreferenceKeys.MainColorSettingName) else { return NSColor.gray }
+    guard let objOrig = UserDefaults.standard.data(forKey: PreferenceKeys.MainColorSettingName) else { return NSColor.gray }
     let extractedObj = NSKeyedUnarchiver.unarchiveObject(with: objOrig)
     return (extractedObj as? NSColor) ?? NSColor.yellow
-    
   }
   
   static var animatedByDefault: Bool {
@@ -17,14 +16,14 @@ class globalSettings {
 
 class PreferencesController: NSWindowController, NSWindowDelegate {
   
-  @IBOutlet weak var picker: NSColorWell!
-  @IBOutlet weak var animateOnStartup: NSButton!
-  var animatedByDefault: Bool? = globalSettings.animatedByDefault
-  
   override var windowNibName: NSNib.Name? { return NSNib.Name.PrefWindow }
   
+  @IBOutlet weak var picker: NSColorWell!
+  @IBOutlet weak var animateOnStartup: NSButton!
   @IBOutlet weak var animationOffButton: NSButton!
   @IBOutlet weak var animationOnButton: NSButton!
+  
+  var animatedByDefault = GlobalSettings.animatedByDefault
   
   override func windowDidLoad() {
     
@@ -34,19 +33,18 @@ class PreferencesController: NSWindowController, NSWindowDelegate {
       animationOffButton.state = .on
     }
     
-    picker.color = globalSettings.defaultColor
+    picker.color = GlobalSettings.defaultColor
     
   }
 
-  
   private func grabAndSaveDefaults() {
     
-    if animatedByDefault != globalSettings.animatedByDefault {
+    if animatedByDefault != GlobalSettings.animatedByDefault {
       UserDefaults.standard.set(animatedByDefault, forKey: PreferenceKeys.AnimateAtStartupSettingName)
     }
       
-      let colorToSendToSettings = NSKeyedArchiver.archivedData(withRootObject: picker.color)
-      UserDefaults.standard.set(colorToSendToSettings, forKey: PreferenceKeys.MainColorSettingName)
+    let colorToSendToSettings = NSKeyedArchiver.archivedData(withRootObject: picker.color)
+    UserDefaults.standard.set(colorToSendToSettings, forKey: PreferenceKeys.MainColorSettingName)
 
   }
   
@@ -69,4 +67,3 @@ class PreferencesController: NSWindowController, NSWindowDelegate {
   }
   
 }
-

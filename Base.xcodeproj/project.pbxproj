@@ -32,10 +32,10 @@
 		1D3CD60C200437B2001CDC2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D3CD60F200437B2001CDC2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1D3CD611200437B2001CDC2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D3CD612200437B2001CDC2F /* WindowDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WindowDemo.entitlements; sourceTree = "<group>"; };
 		1D3CD61B20043F75001CDC2F /* Document.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Document.xib; sourceTree = "<group>"; };
 		1D87D317202A0BD3000FB514 /* SolidColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidColorView.swift; sourceTree = "<group>"; };
 		1D87D319202A100D000FB514 /* NSColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Random.swift"; sourceTree = "<group>"; };
+		1D8F405C208A8DDB0084BABF /* Base.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Base.entitlements; sourceTree = "<group>"; };
 		1DD0A06A2061BEA000603CF3 /* ColorFunDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFunDocument.swift; sourceTree = "<group>"; };
 		1DD0A091206662F900603CF3 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		1DD0A092206662F900603CF3 /* PreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesController.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		1D6F9108201C756700EF7B16 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1D3CD612200437B2001CDC2F /* WindowDemo.entitlements */,
+				1D8F405C208A8DDB0084BABF /* Base.entitlements */,
 				1D3CD60C200437B2001CDC2F /* Assets.xcassets */,
 				1D3CD611200437B2001CDC2F /* Info.plist */,
 			);
@@ -156,6 +156,11 @@
 					1D3CD606200437B2001CDC2F = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -335,7 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = WindowDemo/WindowDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WindowDemo/Base.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = WindowDemo/Info.plist;
@@ -350,7 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = WindowDemo/WindowDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WindowDemo/Base.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = WindowDemo/Info.plist;

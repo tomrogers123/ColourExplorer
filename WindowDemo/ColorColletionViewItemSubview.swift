@@ -11,7 +11,7 @@ class ColorColletionViewItemSubview: NSView {
     let box = CALayer()
     box.frame = bounds
     box.backgroundColor = colorToDrawWith.cgColor
-    if isSelected { box.borderWidth = 2 }
+    if isSelected { box.borderWidth = 3; box.borderColor = NSColor.selectedControlColor.cgColor }
     layer?.addSublayer(box)
   }
     

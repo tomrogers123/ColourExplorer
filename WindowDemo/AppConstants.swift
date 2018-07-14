@@ -9,3 +9,7 @@ struct PreferenceKeys {
   static let MainColorSettingName: String = "Default Drawing Color"
   static let AnimateAtStartupSettingName: String = "Animate on Startup"
 }
+
+extension NSUserInterfaceItemIdentifier {
+  static let ColorItemID = NSUserInterfaceItemIdentifier("ColorItem")
+}

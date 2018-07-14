@@ -7,20 +7,24 @@ import Cocoa
 class SolidColorView: NSView {
   
   @IBOutlet weak var delegate: ColorViewDelegate?
-  var animationEnabled = globalSettings.animatedByDefault
+  var animationEnabled = GlobalSettings.animatedByDefault
   private let boxLayer = CALayer()
   private let colorFadeAnimation = CATransition()
   
-  var drawingFill = globalSettings.defaultColor {
+  var drawingFill = GlobalSettings.defaultColor {
     didSet {
       conditionallyPerformAnimation(oldValue)
       delegate?.viewDidGetNewColor(oldValue)
     }
   }
   
+  override var intrinsicContentSize: NSSize {
+    return CGSize(width: bounds.width, height: bounds.height)
+  }
+  
   private func conditionallyPerformAnimation(_ oldValue: NSColor) {
     if animationEnabled {
-      colorFadeAnimation.duration = 0.5
+      colorFadeAnimation.duration = 0.2
       colorFadeAnimation.type = kCATransitionFade
       boxLayer.backgroundColor = drawingFill.cgColor
       boxLayer.add(colorFadeAnimation, forKey: "transition")
@@ -33,7 +37,7 @@ class SolidColorView: NSView {
     super.draw(dirtyRect)
     
     CATransaction.setDisableActions(true)
-    boxLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+    boxLayer.frame = bounds
     boxLayer.backgroundColor = drawingFill.cgColor
     layer?.addSublayer(boxLayer)
     CATransaction.commit()

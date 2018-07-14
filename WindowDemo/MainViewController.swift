@@ -11,19 +11,22 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
 
   func viewDidGetNewColor(_ oldColor: NSColor) {
     if goingBack == false {
-      activeDocument?.storedColors.append(oldColor)
+      activeDocument?.contents.storedColors.append(oldColor)
       previousColorChart.reloadData()
     }
+    activeDocument?.contents.lastActiveColor = oldColor
   }
-  
- 
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if globalSettings.animatedByDefault {
+    if GlobalSettings.animatedByDefault {
       animationControl.selectSegment(withTag: 1)
     } else {
       animationControl.selectSegment(withTag: 0)
+    }
+    
+    if let lastColor = activeDocument?.contents.lastActiveColor {
+      solidColor.drawingFill = lastColor
     }
     
   }
@@ -31,7 +34,7 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   override func keyUp(with event: NSEvent) {
     if event.keyCode == 51 && previousColorChart.selectionIndexPaths.count == 1 {
       guard let itemToRemove = previousColorChart.selectionIndexPaths.first?.item else { return }
-      activeDocument?.storedColors.remove(at: itemToRemove)
+      activeDocument?.contents.storedColors.remove(at: itemToRemove)
       previousColorChart.reloadData()
     }
     
@@ -64,8 +67,7 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     }
   }
   
-  
-  @objc func customColorChosen(_ sender: NSColorWell) {
+  @IBAction func customColorChosen(_ sender: NSColorWell) {
     solidColor.drawingFill = sender.color
   }
   
@@ -74,10 +76,10 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
     goingBack = true
     backwardSteps += 1
     
-    let desiredIndex = (activeDocument?.storedColors.count)! - backwardSteps
+    let desiredIndex = (activeDocument?.contents.storedColors.count)! - backwardSteps
     
-    if desiredIndex < (activeDocument?.storedColors.count)! && desiredIndex >= 0 {
-      solidColor.drawingFill = (activeDocument?.storedColors[desiredIndex])!
+    if desiredIndex < (activeDocument?.contents.storedColors.count)! && desiredIndex >= 0 {
+      solidColor.drawingFill = (activeDocument?.contents.storedColors[desiredIndex])!
     }
     
   }
@@ -98,12 +100,13 @@ class MainViewController: NSViewController, ColorViewDelegate, NSCollectionViewD
   }
   
   func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
-    return activeDocument?.storedColors[indexPath.item]
+    return activeDocument?.contents.storedColors[indexPath.item]
   }
   
   override func viewDidAppear() {
     super.viewDidAppear()
     previousColorChart.reloadData()
+    print(previousColorChart.intrinsicContentSize, solidColor.intrinsicContentSize, animationControl.intrinsicContentSize)
   }
   
 }

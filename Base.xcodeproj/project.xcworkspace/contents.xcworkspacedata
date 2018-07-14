@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../test.m">
+   </FileRef>
+   <FileRef
       location = "self:/Users/tomrogers/Desktop/Mac App Projects/WindowDemo/Base.xcodeproj">
    </FileRef>
    <FileRef
